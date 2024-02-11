@@ -1,11 +1,12 @@
 import { useState } from "react"
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
 import Navbar from "./components/Navbar"
+import { Home, Login, Register, Projects } from "./pages"
 
 import "./index.css"
 
 function App() {
-  const [user, setUser] = useState(null)
+  // const [user, setUser] = useState(null)
 
   return (
     <main>
