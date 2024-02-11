@@ -1,20 +1,24 @@
 import { useState } from "react"
-import Sidebar from "./components/Sidebar"
-import WithoutProject from "./components/WithoutProject"
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
+import Navbar from "./components/Navbar"
+
 import "./index.css"
 
 function App() {
-  const [projectState, setProjectState] = useState({
-    selectedProjectId: null,
-    projects: [],
-    tasks: [],
-  })
+  const [user, setUser] = useState(null)
 
   return (
-    <div className="h-screen my-8 flex gap-8">
-      <Sidebar />
-      {projectState.projects && <WithoutProject />}
-    </div>
+    <main>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/projects" element={<Projects />} />
+        </Routes>
+      </Router>
+    </main>
   )
 }
 
